@@ -4,10 +4,12 @@ import GerenciadorPlayList.GerenciadorPlayList;
 
 public class Main{
 
-    private static Scanner scanner = new Scanner(System.in);
-  //private static GerenciadorMusica gerenciadormusica = new GerenciadorMusica();
-
     public static void main(String[] args) {
+
+        GerenciadorPlayList gerenciador = new GerenciadorPlayList(); 
+        GerenciadorMusica gerenciadorm = new GerenciadorMusica();
+        Scanner scanner = new Scanner(System.in);
+
         boolean rodando = true;
         while (rodando == true){
             System.out.println("┌─────────────────────────────────────┐");
@@ -18,7 +20,7 @@ public class Main{
             System.out.println("[ 3 ] - Tocar Musica");
             System.out.println("[ 4 ] - Lista de PlayList");
             System.out.println("[ 5 ] - Mesclar Playlist");
-            System.out.println("[ 6 ] - Lista de Musicas");
+            System.out.println("[ 6 ] - ...");
             System.out.println("[ 0 ] - Sair\n");
 
 
@@ -29,13 +31,11 @@ public class Main{
             switch (escolha) { 
 
                 case "1":
-
-
-                GerenciadorMusica.cadastrarMusica();
+                gerenciadorm.cadastrarMusica();
                 break;
 
                 case "2":
-                GerenciadorPlayList.criarPlaylist();
+                gerenciador.criarPlaylist();
                 break;
 
                 case "3":
@@ -43,7 +43,7 @@ public class Main{
                 break;
 
                 case "4":
-                GerenciadorPlayList.listaPlaylist();
+                gerenciador.listaPlaylist();
                 break;
 
                 case "5":
@@ -51,7 +51,7 @@ public class Main{
                 break;
 
                 case "6":
-                GerenciadorPlayList.exibirMusicasCadastradas();
+                //gerenciador.exibirMusicasCadastradas();
                 break;
 
                 case "0":
@@ -63,5 +63,6 @@ public class Main{
                     break;
             }
         }
+        scanner.close();
     }
 }

@@ -8,11 +8,19 @@ import GerenciadorPlayList.PlayList;
 
 public class GerenciadorMusica {
 
-    private static Scanner scanner = new Scanner(System.in);
-    private static List<Musica> listaDeMusicas = new ArrayList<>();
-    private static List<PlayList> listaDePlaylists = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);
+    private  List<Musica> listaDeMusicas = new ArrayList<>();
+    private  List<PlayList> listaDePlaylists = new ArrayList<>();
 
-public static void cadastrarMusica() {
+    public GerenciadorMusica() {
+        listaDeMusicas = new ArrayList<>();
+        scanner = new Scanner(System.in);
+        listaDePlaylists = new ArrayList<>();
+    }
+    
+public void cadastrarMusica() {
+
+
     System.out.println("┌───────────────────────┐");
     System.out.println("│ Cadastro de Música    │");
     System.out.println("└───────────────────────┘");
@@ -68,7 +76,7 @@ public static void cadastrarMusica() {
         }
 
         if (musica != null) {
-            exibirPlaylists();
+            exibirPlaylists(listaDePlaylists);
             System.out.print("Digite o número da playlist na qual deseja adicionar a música: ");
             String escolhaPlaylist = scanner.nextLine();
             int playlistEscolhida = Integer.parseInt(escolhaPlaylist);
@@ -86,7 +94,7 @@ public static void cadastrarMusica() {
     }
 }
 
-    public static void exibirMusicasCadastradas() {
+    public void exibirMusicasCadastradas() {
         System.out.println("\n┌─────────────────────────────────────┐");
         System.out.println("│ Músicas Cadastradas                 │");
         System.out.println("└─────────────────────────────────────┘\n");
@@ -101,7 +109,7 @@ public static void cadastrarMusica() {
         }
     }
 
-   public static void exibirPlaylists() {
+    public void exibirPlaylists(List<PlayList> playlists) {
         System.out.println("\n┌─────────────────────────────────────┐");
         System.out.println("│ Playlists Disponíveis               │");
         System.out.println("└─────────────────────────────────────┘\n");
@@ -115,6 +123,16 @@ public static void cadastrarMusica() {
             }
         }
     }
+    public void adicionarPlaylist() {
+        System.out.print("Digite o nome da playlist: ");
+        String nomePlaylist = scanner.nextLine();
+    
+        PlayList novaPlaylist = new PlayList(nomePlaylist);
+        listaDePlaylists.add(novaPlaylist);
+    
+        System.out.println("\nPlaylist adicionada com sucesso: " + nomePlaylist);
+    }
+    
 }
 
     // public static void cadastrarMusica() {
