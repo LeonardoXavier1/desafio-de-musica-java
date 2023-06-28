@@ -18,6 +18,7 @@ public class Main{
             System.out.println("[ 3 ] - Tocar Musica");
             System.out.println("[ 4 ] - Lista de PlayList");
             System.out.println("[ 5 ] - Mesclar Playlist");
+            System.out.println("[ 6 ] - Lista de Musicas");
             System.out.println("[ 0 ] - Sair\n");
 
 
@@ -47,6 +48,10 @@ public class Main{
 
                 case "5":
                 //mesclar
+                break;
+
+                case "6":
+                GerenciadorPlayList.exibirMusicasCadastradas();
                 break;
 
                 case "0":
