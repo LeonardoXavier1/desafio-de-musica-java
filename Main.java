@@ -17,10 +17,9 @@ public class Main{
             System.out.println("└─────────────────────────────────────┘");
             System.out.println("[ 1 ] - Cadastrar Musica");
             System.out.println("[ 2 ] - Criar PlayList");
-            System.out.println("[ 3 ] - Tocar Musica");
+            System.out.println("[ 3 ] - Reproduzir");
             System.out.println("[ 4 ] - Lista de PlayList");
             System.out.println("[ 5 ] - Mesclar Playlist");
-            System.out.println("[ 6 ] - ...");
             System.out.println("[ 0 ] - Sair\n");
 
 
@@ -31,7 +30,7 @@ public class Main{
             switch (escolha) { 
 
                 case "1":
-                gerenciadorm.cadastrarMusica();
+                gerenciadorm.cadastrarMusica(gerenciador);
                 break;
 
                 case "2":
@@ -39,7 +38,7 @@ public class Main{
                 break;
 
                 case "3":
-                //tocarMusica();
+                gerenciadorm.tocarMusicas();
                 break;
 
                 case "4":
@@ -47,11 +46,7 @@ public class Main{
                 break;
 
                 case "5":
-                //mesclar
-                break;
-
-                case "6":
-                //gerenciador.exibirMusicasCadastradas();
+                gerenciador.mesclar();
                 break;
 
                 case "0":

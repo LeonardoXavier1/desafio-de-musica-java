@@ -1,9 +1,11 @@
 package GerenciadorMusica;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import GerenciadorPlayList.GerenciadorPlayList;
 import GerenciadorPlayList.PlayList;
 
 public class GerenciadorMusica {
@@ -18,7 +20,9 @@ public class GerenciadorMusica {
         listaDePlaylists = new ArrayList<>();
     }
     
-public void cadastrarMusica() {
+public void cadastrarMusica(GerenciadorPlayList gerenciador) {
+    this.listaDePlaylists = gerenciador.getListaDePlaylists();
+
 
 
     System.out.println("┌───────────────────────┐");
@@ -110,16 +114,16 @@ public void cadastrarMusica() {
     }
 
     public void exibirPlaylists(List<PlayList> playlists) {
-        System.out.println("\n┌─────────────────────────────────────┐");
-        System.out.println("│ Playlists Disponíveis               │");
-        System.out.println("└─────────────────────────────────────┘\n");
+        // System.out.println("\n┌─────────────────────────────────────┐");
+        // System.out.println("│ Playlists Disponíveis               │");
+        // System.out.println("└─────────────────────────────────────┘\n");
 
-        if (listaDePlaylists.isEmpty()) {
+        if (playlists.isEmpty()) {
             System.out.println("Não há playlists disponíveis.\n");
         } else {
             for (int i = 0; i < listaDePlaylists.size(); i++) {
                 PlayList playlist = listaDePlaylists.get(i);
-                System.out.println("[" + (i + 1) + "] " + playlist.getNome());
+                System.out.println("\n[" + (i + 1) + "] " + playlist.getNome());
             }
         }
     }
@@ -132,6 +136,55 @@ public void cadastrarMusica() {
     
         System.out.println("\nPlaylist adicionada com sucesso: " + nomePlaylist);
     }
+
+public void tocarMusicas() {
+    exibirPlaylists(listaDePlaylists);
+
+    if (listaDePlaylists.isEmpty()) {
+        System.out.println("Não há playlists disponíveis para reproduzir músicas.");
+        return;
+    }
+
+    System.out.print("Digite o número da playlist que deseja reproduzir: ");
+    String escolhaPlaylist = scanner.nextLine();
+    int playlistEscolhida = Integer.parseInt(escolhaPlaylist);
+
+    if (playlistEscolhida >= 1 && playlistEscolhida <= listaDePlaylists.size()) {
+        PlayList playlist = listaDePlaylists.get(playlistEscolhida - 1);
+        List<Musica> musicas = playlist.getMusicas();
+
+        if (musicas.isEmpty()) {
+            System.out.println("A playlist selecionada não possui músicas para reproduzir.");
+            return;
+        }
+
+        System.out.println("Reproduzindo músicas da playlist: " + playlist.getNome());
+        System.out.print("Escolha o modo de reprodução: ");
+        System.out.println("[1] Reproduzir em ordem");
+        System.out.println("[2] Reproduzir aleatoriamente");
+        String escolhaModo = scanner.nextLine();
+
+        if (escolhaModo.equals("1")) {
+            System.out.println("Modo de reprodução: em ordem");
+            for (int i = 0; i < musicas.size(); i++) {
+                Musica musica = musicas.get(i);
+                System.out.println("Tocando música: " + musica.getTitulo() + " - " + musica.getArtista());
+            }
+        } else if (escolhaModo.equals("2")) {
+            System.out.println("Modo de reprodução: aleatório");
+            List<Musica> musicasAleatorias = new ArrayList<>(musicas);
+            Collections.shuffle(musicasAleatorias);
+            for (Musica musica : musicasAleatorias) {
+                System.out.println("Tocando música: " + musica.getTitulo() + " - " + musica.getArtista());
+            }
+        } else {
+            System.out.println("Opção de modo inválida. A reprodução foi cancelada.");
+        }
+    } else {
+        System.out.println("Playlist inválida. A reprodução foi cancelada.");
+    }
+}
+
     
 }
 

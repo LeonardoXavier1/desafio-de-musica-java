@@ -24,4 +24,7 @@ public class PlayList {
     public List<Musica> getMusicas() {
         return musicas;
     }
+
+    public void setListaDeMusicas(List<Musica> musicasMescladas) {
+    }
 }
