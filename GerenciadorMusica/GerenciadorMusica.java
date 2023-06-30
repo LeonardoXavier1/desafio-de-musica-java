@@ -30,11 +30,11 @@ public void cadastrarMusica(GerenciadorPlayList gerenciador) {
     System.out.println("└───────────────────────┘");
 
     System.out.println("┌────────────────────────────────────────────┐");
-    System.out.println("│[1] Bring Me The Horizon - Maybe            │");
-    System.out.println("│[2] Nirvana - Something in The Way          │");
-    System.out.println("│[3] Nirvana - Smells Like Teen Spirit       │");
-    System.out.println("│[4] Nirvana - Come As You Are               │");
-    System.out.println("│[5] Bring Me The Horizon - Throne           │");
+    System.out.println("│[1] Bring Me The Horizon - Maybe - 1:11     │");
+    System.out.println("│[2] Nirvana - Something in The Way - 4:11   │");
+    System.out.println("│[3] Nirvana - Smells Like Teen Spirit - 1:21│");
+    System.out.println("│[4] Nirvana - Come As You Are - 3:11        │");
+    System.out.println("│[5] Bring Me The Horizon - Throne - 2:21    │");
     System.out.println("│[6] Bring Me The Horizon - SleepWalking     │");
     System.out.println("└────────────────────────────────────────────┘");
 
@@ -187,42 +187,3 @@ public void tocarMusicas() {
 
     
 }
-
-    // public static void cadastrarMusica() {
-    //     System.out.println("┌───────────────────────┐");
-    //     System.out.println("│ Cadastro de Música    │");
-    //     System.out.println("└───────────────────────┘");
-
-    //     System.out.print("Digite o título da música: ");
-    //     String titulo = scanner.nextLine();
-
-    //     System.out.print("Digite o artista: ");
-    //     String artista = scanner.nextLine();
-
-    //     int duracaoMinutos = 0;
-    //     int duracaoSegundos = 0;
-
-    //     while (true) {
-    //         System.out.print("Digite a duração da música (minutos:segundos): ");
-    //         String duracao = scanner.nextLine();
-
-    //         String[] partesDuracao = duracao.split(":");
-    //         if (partesDuracao.length == 2) {
-    //             try {
-    //                 duracaoMinutos = Integer.parseInt(partesDuracao[0]);
-    //                 duracaoSegundos = Integer.parseInt(partesDuracao[1]);
-    //                 break;
-    //             } catch (NumberFormatException e) {
-    //                 System.out.println("Entrada inválida! Digite a duração no formato correto (minutos:segundos).");
-    //             }
-    //         }
-    //     }
-
-    //     int duracaoTotalSegundos = duracaoMinutos * 60 + duracaoSegundos;
-    //     Musica novaMusica = new Musica(titulo, artista, duracaoTotalSegundos);
-    //     listaDeMusicas.add(novaMusica);
-
-    //     System.out.println("\n┌───────────────────────┐");
-    //     System.out.println("│ Música Cadastrada !   │");
-    //     System.out.println("└───────────────────────┘\n");
-    // }
